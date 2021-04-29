@@ -23,6 +23,7 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
   private static final Logger log = LoggerFactory.getLogger(JobCompletionNotificationListener.class);
 
   private final EntityManager em;
+  private final String tie = "tie";
 
   @Autowired
   public JobCompletionNotificationListener(EntityManager em) {
@@ -50,7 +51,11 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
             Team team = teamData.get((String) e[0]);
             team.setTotalMatches(team.getTotalMatches() + (long) e[1]);
           });
-
+      em.createQuery("select m.team1, count(*) from Match m where m.result = '" + tie + "' group by m.team1",
+          Object[].class).getResultList().stream().forEach(e -> {
+            Team team = teamData.get((String) e[0]);
+            team.setTotalTies(team.getTotalTies() + (long) e[1]);
+          });
       em.createQuery("select m.matchWinner, count(*) from Match m group by m.matchWinner", Object[].class)
           .getResultList().stream().forEach(e -> {
             Team team = teamData.get((String) e[0]);
