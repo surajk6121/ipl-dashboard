@@ -4,6 +4,7 @@ import { PieChart } from 'react-minimal-pie-chart';
 import { MatchDetailCard } from '../components/MatchDetailCard'
 import { MatchSmallCard } from '../components/MatchSmallCard'
 import './TeamPage.scss'
+import { NavBar } from '../components/NavBar';
 
 export const TeamPage = () => {
 
@@ -29,7 +30,13 @@ export const TeamPage = () => {
     return <h2>Team Not Found</h2>
   }
   return (
+    <div>
+    <div className="header-section">
+        <NavBar/>
+        {/* <h1 className="app-name">IPL Dashboard</h1> */}
+      </div>
     <div className="TeamPage">
+      
       <div className="team-name-section">
         <h1 className="team-name">{team.teamName}</h1>
       </div>
@@ -54,7 +61,7 @@ export const TeamPage = () => {
       </div>
     
     </div>
-    
+    </div>
   );
 }
 

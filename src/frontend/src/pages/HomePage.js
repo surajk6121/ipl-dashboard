@@ -1,4 +1,5 @@
 import {React, useEffect, useState} from 'react'
+import { NavBar } from '../components/NavBar';
 import { TeamTile } from '../components/TeamTile';
 import './HomePage.scss'
 
@@ -21,8 +22,10 @@ export const HomePage = () => {
   
   return (
     <div className="HomePage">
+      
       <div className="header-section">
-        <h1 className="app-name">IPL Dashboard</h1>
+        <NavBar/>
+        {/* <h1 className="app-name">IPL Dashboard</h1> */}
       </div>
         <div className= "team-grid">
           {teams.map(team => <TeamTile key={team.id} teamName = {team.teamName}></TeamTile>)}

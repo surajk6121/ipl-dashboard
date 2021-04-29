@@ -1,6 +1,7 @@
 import {React, useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import { MatchDetailCard } from '../components/MatchDetailCard'
+import { NavBar } from '../components/NavBar'
 import { YearSelector } from '../components/YearSelector'
 import './MatchPage.scss'
 
@@ -22,7 +23,13 @@ export const MatchPage = () => {
 
   
   return (
+    <div>
+      <div className="header-section">
+        <NavBar/>
+        {/* <h1 className="app-name">IPL Dashboard</h1> */}
+      </div>
     <div className="MatchPage">
+      
       <div className="year-selector">
         <h3>Select Year</h3>
         <YearSelector teamName = {teamName}/>
@@ -31,6 +38,7 @@ export const MatchPage = () => {
         <h1 className = "page-heading">{teamName} matches in {year}</h1>
         {matches.map(match => <MatchDetailCard key = {match.id} teamName = {teamName} match={match}/>)}
       </div>
+    </div>
     </div>
   );
 }
