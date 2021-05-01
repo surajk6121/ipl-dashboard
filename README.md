@@ -10,3 +10,6 @@ IPL Dashboard application that let's you browse your favorite team and their pas
 * HSQL DB
 * React JS
 * Heroku
+
+## DataSet Used ###
+https://www.kaggle.com/patrickb1912/ipl-complete-dataset-20082020/metadata
