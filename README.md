@@ -2,7 +2,7 @@ IPL Dashboard application that let's you browse your favorite team and their pas
 
 **https://ipl-console.herokuapp.com/**
 
-##Technologies##
+## Technologies ##
 
 * Spring Boot
 * Spring Batch
